@@ -15,8 +15,8 @@
     <tr>
         <th>{{post.id}}</th>
         <th>{{post.titulo}}</th>
-        <th>ALTERAÇÃO</th>
-        <th>DELEÇÃO</th>
+        <th><a href="http://localhost/crud-php-mvc-mysql/?pagina=admin&metodo=change&id={{post.id}}">ALTERAÇÃO</a></th>
+        <th><a href="http://localhost/crud-php-mvc-mysql/?pagina=admin&metodo=delete&id={{post.id}}">DELEÇÃO</a></th>
     </tr>
     {% endfor %}
 </table>

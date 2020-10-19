@@ -65,4 +65,44 @@
 
             return true;
         }
+
+        public static function update($params){
+            if (empty($params['titulo']) or empty($params['conteudo'])){
+                throw new Exception("Preencha todos os campos");
+
+                return false;
+            } 
+
+            $con = Connection::getConn();
+
+            $sql = $con->prepare("UPDATE postagem SET titulo = :tit, conteudo = :cont WHERE id = :id");
+            $sql->bindValue(':id', $params['id']);
+            $sql->bindValue(':tit', $params['titulo']);
+            $sql->bindValue(':cont', $params['conteudo']);
+            $res = $sql->execute();
+
+            if($res == 0) {
+                throw new Exception("Falha ao atualzar publicação");
+
+                return false;
+            }
+
+            return true;
+        }
+
+        public static function delete($id){
+            $con = Connection::getConn();
+
+            $sql = $con->prepare("DELETE FROM postagem WHERE id = :id");
+            $sql->bindValue(':id', $id);
+            $res = $sql->execute();
+
+            if($res == 0) {
+                throw new Exception("Falha ao deletar publicação");
+
+                return false;
+            }
+
+            return true;
+        }
     }
