@@ -6,8 +6,12 @@
 
     require_once 'app/Controller/HomeController.php';
     require_once 'app/Controller/ErroController.php';
+    require_once 'app/Controller/PostController.php';
 
     require_once 'app/Model/Postagem.php';
+    require_once 'app/Model/Comentario.php';
+
+    require_once 'vendor/autoload.php';
 
     $template = file_get_contents('app/Template/estrutura.html');
     
