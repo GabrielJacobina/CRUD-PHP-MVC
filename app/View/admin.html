@@ -1,0 +1,22 @@
+<h1>Gerenciador de Conteúdo</h1>
+
+<a href="http://localhost/crud-php-mvc-mysql/?pagina=admin&metodo=create">Criar Publicação</a><br><br>
+
+<hr>
+<br><table border="2">
+    <tr>
+        <th>ID</th>
+        <th>TÍTULO</th>
+        <th>ALTERAÇÃO</th>
+        <th>DELEÇÃO</th>
+    </tr>
+
+    {% for post in postagens %}
+    <tr>
+        <th>{{post.id}}</th>
+        <th>{{post.titulo}}</th>
+        <th>ALTERAÇÃO</th>
+        <th>DELEÇÃO</th>
+    </tr>
+    {% endfor %}
+</table>
